@@ -1,14 +1,10 @@
 package solo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,11 +14,9 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Getter
+@Entity
+@Table(name = "album")
 public class Album {
-
-    @Id
-    @GeneratedValue
-    private Long id;
 
     @JsonIgnore
     @ManyToOne
@@ -31,14 +25,28 @@ public class Album {
     @OneToMany(mappedBy = "album")
     private List<Song> songs = new ArrayList<>();
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "title")
     private String title;
-    //private Date releaseDate;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "release_date")
+    private Date releaseDate;
+
+    @Column(name = "confirmed")
     private int confirmed;
+
+    @Column(name = "total")
     private int total;
 
-    public Album(Artist artist, String title, int confirmed, int total){
+    public Album(Artist artist, String title, Date releaseDate, int confirmed, int total){
         this.artist = artist;
         this.title = title;
+        this.releaseDate = releaseDate;
         this.confirmed = confirmed;
         this.total = total;
     }

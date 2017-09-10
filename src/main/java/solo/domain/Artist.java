@@ -1,12 +1,9 @@
 package solo.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +12,20 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Getter
+@Entity
+@Table(name = "artist")
 public class Artist {
-
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
 
     @OneToMany(mappedBy = "artist")
     private List<Album> albums = new ArrayList<>();
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
 
     public Artist(String name){
         this.name = name;
