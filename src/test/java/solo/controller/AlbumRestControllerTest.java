@@ -1,17 +1,11 @@
 package solo.controller;
 
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import solo.Application;
-
 /**
  * @author Matthew Williams
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = Application.class)
-@WebAppConfiguration
+//@RunWith(SpringRunner.class)
+//@SpringBootTest(classes = Application.class)
+//@WebAppConfiguration
 public class AlbumRestControllerTest {
 
 //    private MockMvc mockMvc;
