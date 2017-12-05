@@ -1,0 +1,7 @@
+spring:
+  application.name: albums-api
+  datasource:
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
