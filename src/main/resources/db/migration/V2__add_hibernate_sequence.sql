@@ -1,6 +1,8 @@
-drop table if exists song;
-drop table if exists artist;
-drop table if exists album;
+ALTER TABLE song DROP CONSTRAINT fk_song_album_id;
+ALTER TABLE album DROP CONSTRAINT fk_album_artist_id;
+DROP TABLE song;
+DROP TABLE album;
+DROP TABLE artist;
 
 create sequence hibernate_sequence
 ;
