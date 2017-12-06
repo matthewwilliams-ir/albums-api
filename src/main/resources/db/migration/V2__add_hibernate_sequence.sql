@@ -1,3 +1,7 @@
+drop table album;
+drop table artist;
+drop table song;
+
 create sequence hibernate_sequence
 ;
 
