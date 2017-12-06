@@ -1,6 +1,6 @@
-drop table if exists album;
-drop table if exists artist;
 drop table if exists song;
+drop table if exists artist;
+drop table if exists album;
 
 create sequence hibernate_sequence
 ;
