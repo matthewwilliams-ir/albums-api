@@ -1,6 +1,5 @@
 package solo.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,8 +14,8 @@ import javax.persistence.*;
 @Table(name = "song")
 public class Song {
 
-    @JsonIgnore
     @ManyToOne
+    @JoinColumn(name = "album_id")
     private Album album;
 
     @Id

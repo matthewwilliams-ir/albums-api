@@ -1,6 +1,5 @@
 package solo.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,8 +17,8 @@ import java.util.List;
 @Table(name = "album")
 public class Album {
 
-    @JsonIgnore
     @ManyToOne
+    @JoinColumn(name = "artist_id")
     private Artist artist;
 
     @OneToMany(mappedBy = "album")
